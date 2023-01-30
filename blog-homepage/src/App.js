@@ -1,20 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
-//import Picture from './Picture';
-import TodoListApp from './TodoListApp/TodoListApp';
+import missedArticles from './missed-articles.json';
+import yourArticles from './your-articles.json';
+import MediumArticle from "./MediumArticle";
+import MediumSectionHeader from "./MediumSectionHeader";
 
 function App() {
-  return (
-    <div className="App">
-      <TodoListApp />
-      {/* <TodoListForm /> */}
-      {/* <h1>Picture</h1>
-      <Picture 
-      imgUrl='https://media.giphy.com/media/l0MYrokk2rXUsebKw/giphy.gif'
-      altTag='Fractal'
-      /> */}
+  const mediumYourArticles = yourArticles.map((article) => {
+    return (
+        <MediumArticle article={article}  />
+    );
+});
+
+const mediumMissedArticles = missedArticles.map((article) => {
+    return (
+        <MediumArticle article={article} />
+    );
+});
+
+
+return (
+  <div className="row">
+    <MediumSectionHeader
+    sectionTitle={"For you"}
+    />
+    {mediumYourArticles}
+    <MediumSectionHeader
+    sectionTitle={"In case you missed it"}
+    />
+    {mediumMissedArticles}
+
     </div>
-  );
+);
 }
 
 export default App;

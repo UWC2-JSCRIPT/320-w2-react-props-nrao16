@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  height: 55px;
+  line-height: 55px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hr1 {
+  border: 0;
+  height: 3px;
+  background: #095484;
+  background-image: linear-gradient(to right, #ccc, #095484, #ccc);
+}
+.hr2 {
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(9, 84, 132), rgba(0, 0, 0, 0));
+}
+
+img {
+  max-width: 500px;
+  flex: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  border-color:blue
+}
+
+.column {
+  float: left;
+  flex: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
