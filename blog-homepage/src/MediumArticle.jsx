@@ -9,46 +9,53 @@ function getDay(dateString) {
     return new Date(dateString).toLocaleString('en-US', { day: 'numeric' });
 }
 
-const AvatarComponent = ({ author }) => {
-    return (<img className={author.isMediumMember ? "avatar-blue" : "avatar"}
-        src={author.image}
+const AvatarComponent = ({ author: { isMediumMember, image } }) => {
+    return (<img className={isMediumMember ? "avatar-blue" : "avatar"}
+        src={image}
         alt="Author"
     />);
 };
 
-function MediumArticle({ article }) {
+const MemberPreviewComponent = ({ memberPreview }) => {
+    return (memberPreview && <p className="grey-text">Member Preview</p>);
+};
+
+const AudioAvailableComponent = ({ hasAudioAvailable }) => {
+    return (hasAudioAvailable &&
+        <p className="grey-text">Audio Available</p>);
+}
+
+function MediumArticle({ article,
+    article: { image, title, description, hasAudioAvailable, link, author, postedDate, minutesToRead, memberPreview } }) {
     return (
         <div className="container">
             <div className="column">
                 <img
-                    src={article.image}
+                    src={image}
                     alt="Article"
                 />
             </div>
             <div className="column">
-                {article.hasAudioAvailable &&
-                    <p className="grey-text">Audio Available</p>
-                }
+                <AudioAvailableComponent hasAudioAvailable={hasAudioAvailable} />
                 <h2>
-                    <a href={article.link}>{article.title}</a>
+                    <a href={link}>{title}</a>
                 </h2>
                 <p>
-                    {article.description}
+                    {description}
                 </p>
                 <div className="column">
-                    <AvatarComponent author={article.author}
+                    <AvatarComponent author={author}
                     />
                 </div>
                 <div className="column">
                     <p>
-                        {article.author.name}
+                        {author.name}
                     </p>
                     <p>
-                        {getMonth(article.postedDate)} {getDay(article.postedDate)} * {article.minutesToRead} min read
+                        {getMonth(postedDate)} {getDay(postedDate)} * {minutesToRead} min read
                     </p>
-                    {article.memberPreview &&
-                        <p className="grey-text">Member Preview</p>
-                    }
+                    <MemberPreviewComponent memberPreview={memberPreview} />
+
                     <p className="bookmarkRibbon"></p>
                 </div>
             </div>
@@ -71,7 +78,7 @@ MediumArticle.propTypes = {
         minutesToRead: PropTypes.number,
         hasAudioAvailable: PropTypes.bool,
         memberPreview: PropTypes.bool,
-      })
+    })
 }
 
 export default MediumArticle;
