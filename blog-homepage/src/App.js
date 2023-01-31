@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import missedArticles from './missed-articles.json';
 import yourArticles from './your-articles.json';
@@ -8,7 +7,7 @@ import MediumSectionHeader from "./MediumSectionHeader";
 function App() {
   const mediumYourArticles = yourArticles.map((article) => {
     return (
-        <MediumArticle article={article}  />
+        <MediumArticle article={article} />
     );
 });
 
@@ -20,16 +19,19 @@ const mediumMissedArticles = missedArticles.map((article) => {
 
 
 return (
-  <div className="row">
+<div>
     <MediumSectionHeader
     sectionTitle={"For you"}
     />
+    <div>
     {mediumYourArticles}
+    </div>
     <MediumSectionHeader
     sectionTitle={"In case you missed it"}
     />
+     <div className="container-2">
     {mediumMissedArticles}
-
+    </div>
     </div>
 );
 }

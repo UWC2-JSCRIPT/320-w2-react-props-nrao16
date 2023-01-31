@@ -63,7 +63,13 @@ img {
 
 .avatar {
   border-radius: 50%;
-  border-color:blue
+}
+.avatar-blue {
+	line-height: 0;		/* remove line-height */ 
+	display: inline-block;	/* circle wraps image */
+  border: 2px solid aqua;
+	border-radius: 50%;	/* relative value */
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
 }
 
 .column {
@@ -82,13 +88,46 @@ img {
 }
 
 /* Add some shadows to create a card effect */
+/* .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+} */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .card {
+   flex: 0 1 50%;
+   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card2 {
+  flex: 0 1 33%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Some left and right padding inside the container */
 .container {
+  padding: 0 15px;
+}
+
+.container-1 {
   padding: 0 16px;
+  columns: 2 auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.container-2 {
+  padding: 0 16px;
+  columns: 3 auto;
+  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
 }
 
 /* Clear floats */
@@ -98,6 +137,13 @@ img {
   display: table;
 }
 
-.title {
+.grey-text {
   color: grey;
+}
+
+.bookmarkRibbon {
+  width: 25px;
+  height: 40px;
+  background: gray;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - 20px), 0% 100%, 0% 0%);
 }

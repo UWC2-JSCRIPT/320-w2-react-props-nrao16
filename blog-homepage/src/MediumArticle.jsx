@@ -1,58 +1,66 @@
 import React from "react"
 import PropTypes from 'prop-types';
 
-function getMonth(dateString){
+function getMonth(dateString) {
     return new Date(dateString).toLocaleString('en-US', { month: 'long' });
 }
 
-function getDay(dateString){
-    return new Date(dateString).toLocaleString('en-US', { day: '2-digit' });
+function getDay(dateString) {
+    return new Date(dateString).toLocaleString('en-US', { day: 'numeric' });
 }
 
+const AvatarComponent = ({ author }) => {
+    return (<img className={author.isMediumMember ? "avatar-blue" : "avatar"}
+        src={author.image}
+        alt="Author"
+    />);
+};
+
 function MediumArticle({ article }) {
-    console.log(article)
     return (
-        // <div className="column">
-            <div className="card">
+        <div className="container">
+            <div className="column">
                 <img
                     src={article.image}
-                    alt={"Article image"}
+                    alt="Article"
                 />
-                <div className="container">
-                    <h2>
-                        {article.title}
-                    </h2>
-                    <p>
-                        {article.description}
-                    </p>
-                    <div className="column">
-                    <img className="avatar"
-                        src={article.author.image}
-                        alt={"Author image"}
+            </div>
+            <div className="column">
+                {article.hasAudioAvailable &&
+                    <p className="grey-text">Audio Available</p>
+                }
+                <h2>
+                    <a href={article.link}>{article.title}</a>
+                </h2>
+                <p>
+                    {article.description}
+                </p>
+                <div className="column">
+                    <AvatarComponent author={article.author}
                     />
-                    </div>
-                    <div className="column">
+                </div>
+                <div className="column">
                     <p>
                         {article.author.name}
                     </p>
-                    {article.author.isMediumMember}
                     <p>
-                    {getMonth(article.postedDate)} {getDay(article.postedDate)} * {article.minutesToRead} min read 
+                        {getMonth(article.postedDate)} {getDay(article.postedDate)} * {article.minutesToRead} min read
                     </p>
-                    
-                    {article.memberPreview}
-                    </div>
+                    {article.memberPreview &&
+                        <p className="grey-text">Member Preview</p>
+                    }
+                    <p className="bookmarkRibbon"></p>
                 </div>
             </div>
-        // </div>
+        </div>
     );
 };
 
 MediumArticle.propTypes = {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    image: PropTypes.isRequired,
     description: PropTypes.string.isRequired,
+
 }
 
 export default MediumArticle;
