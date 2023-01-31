@@ -57,10 +57,21 @@ function MediumArticle({ article }) {
 };
 
 MediumArticle.propTypes = {
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-
+    article: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        link: PropTypes.string.isRequired,
+        author: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            image: PropTypes.string,
+            isMediumMember: PropTypes.bool
+        }),
+        postedDate: PropTypes.string.isRequired,
+        minutesToRead: PropTypes.number,
+        hasAudioAvailable: PropTypes.bool,
+        memberPreview: PropTypes.bool,
+      })
 }
 
 export default MediumArticle;
