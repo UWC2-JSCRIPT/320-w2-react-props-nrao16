@@ -1,0 +1,149 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1 {
+  height: 55px;
+  line-height: 55px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hr1 {
+  border: 0;
+  height: 3px;
+  background: #095484;
+  background-image: linear-gradient(to right, #ccc, #095484, #ccc);
+}
+.hr2 {
+  border: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(9, 84, 132), rgba(0, 0, 0, 0));
+}
+
+img {
+  max-width: 500px;
+  flex: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+.avatar-blue {
+	line-height: 0;		/* remove line-height */ 
+	display: inline-block;	/* circle wraps image */
+  border: 2px solid aqua;
+	border-radius: 50%;	/* relative value */
+	box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+}
+
+.column {
+  float: left;
+  flex: 50%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+/* .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+} */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+   flex: 0 1 50%;
+   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card2 {
+  flex: 0 1 33%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 15px;
+}
+
+.container-1 {
+  padding: 0 16px;
+  columns: 2 auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.container-2 {
+  padding: 0 16px;
+  columns: 3 auto;
+  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; */
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.grey-text {
+  color: grey;
+}
+
+.bookmarkRibbon {
+  width: 25px;
+  height: 40px;
+  background: gray;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - 20px), 0% 100%, 0% 0%);
+}
